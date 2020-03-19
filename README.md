@@ -1,2 +1,2 @@
-# terraform
-Terraform Project (IaaS as a Code for AWS, OCI, Google Cloud)
+# terraform-cloud
+Terraform Cloud - AWS, GCLOUD, OCI, Azure

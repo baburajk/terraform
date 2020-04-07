@@ -67,14 +67,18 @@ resource "aws_security_group" "subnetsg"{
 
 }
 
+
 resource aws_eip "prod_web_eip" {
-  instance = aws_instance.prod_web.id
+}
 
-
+resource aws_eip_association "prod_web_eipass"{
+  instance_id = aws_instance.prod_web.0.id
+  allocation_id = aws_eip.prod_web_eip.id
 
 }
 
 resource "aws_instance" "prod_web"{
+  count         = 2
   ami           = "ami-0551d2acb56d6e88c"
   instance_type = "t2.micro"
 
@@ -82,3 +86,20 @@ resource "aws_instance" "prod_web"{
   subnet_id = aws_subnet.devnet_subnet1.id
 
 }
+
+resource aws_elb "prod_web"{
+  name      = "prod-web-lb"
+  instances = aws_instance.prod_web.*.id
+  subnets = [ aws_subnet.devnet_subnet1.id , aws_subnet.devnet_subnet2.id ]
+  security_groups = [ aws_security_group.subnetsg.id ]
+
+  listener {
+    instance_port     = 80
+    instance_protocol = "http"
+    lb_port           = 80
+    lb_protocol       = "http"
+  }
+}
+
+
+

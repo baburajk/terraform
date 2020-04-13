@@ -1,3 +1,7 @@
+variable "whitelist" {
+	type = list(string)
+}
+
 resource "google_compute_network" "development_net"{
  name = "devnet"
   auto_create_subnetworks = false
@@ -43,7 +47,7 @@ resource "aws_security_group" "subnetsg"{
   description = " ingress=http and https, egress=all"
 
  ingress  {
-       cidr_blocks  = [ "0.0.0.0/0" ]
+       cidr_blocks  =  var.whitelist 
        from_port    = 443
        to_port      = 443
       protocol      = "tcp"

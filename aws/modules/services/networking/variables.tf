@@ -15,8 +15,8 @@ variable "managed_by" {
 	type = string
 }
 
-variable "env_prefix" {
-	description = "Tag variable : Environment Prefix"
+variable "environment" {
+	description = "Tag variable : Environment "
 	type = string
 }
 

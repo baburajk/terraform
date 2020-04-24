@@ -1,5 +1,6 @@
 resource "aws_security_group" "sg_lb" {
-  name = "${var.env_prefix}-sg_lb"
+  tags = { environment = var.environment, managed_by  = var.managed_by }
+  name = "sg_lb"
 
   # Allow all outbound
   egress {
@@ -19,7 +20,8 @@ resource "aws_security_group" "sg_lb" {
 }
 
 resource "aws_security_group" "sg_web" {
-  name = "${var.env_prefix}-sg_lb"
+  tags = { environment = var.environment, managed_by  = var.managed_by }
+  name = "sg_web"
 
   # Allow all outbound
   egress {

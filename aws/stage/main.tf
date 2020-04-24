@@ -1,6 +1,6 @@
 module "networking" {
         source  	    = "../modules/services/networking"
-        env_prefix      = "stage"
+        environment     = "stage"
         managed_by      = "terraform"
 }
 

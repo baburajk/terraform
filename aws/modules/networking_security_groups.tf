@@ -1,6 +1,6 @@
 resource "aws_security_group" "sg_lb" {
-  tags = { environment = var.environment, managed_by  = var.managed_by }
-  name = "sg_lb"
+
+  vpc_id = aws_vpc.dataplane_network.id
 
   # Allow all outbound
   egress {
@@ -16,12 +16,18 @@ resource "aws_security_group" "sg_lb" {
     to_port     = var.lb_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name		= "sg_lb"
+    environment 	= var.environment,
+    managed_by  	= var.managed_by
   }
 }
 
 resource "aws_security_group" "sg_web" {
-  tags = { environment = var.environment, managed_by  = var.managed_by }
-  name = "sg_web"
+
+  vpc_id = aws_vpc.dataplane_network.id
 
   # Allow all outbound
   egress {
@@ -37,5 +43,11 @@ resource "aws_security_group" "sg_web" {
     to_port     = var.lb_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name		= "sg_web"
+    environment 	= var.environment,
+    managed_by  	= var.managed_by
   }
 }

@@ -1,0 +1,1 @@
+../../../globalvars_provider.tf

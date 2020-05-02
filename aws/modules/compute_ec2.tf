@@ -4,6 +4,7 @@ resource "aws_instance" "example" {
   subnet_id                   = aws_subnet.subnet_web1.id
   vpc_security_group_ids = [aws_security_group.sg_web.id,aws_security_group.sg_ssh.id]
   associate_public_ip_address = "true"
+  key_name = "id_rsa_aws.pem"
 
   user_data = <<-EOF
               #!/bin/bash

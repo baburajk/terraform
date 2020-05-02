@@ -1,3 +1,9 @@
+variable "ssh_port" {
+	description = "SSH port"
+	type        = number
+	default     = 22
+}
+
 variable "server_port" {
 	description = "The port used by server for HTTP requests"
 	type        = number

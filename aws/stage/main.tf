@@ -1,5 +1,5 @@
 module "webcluster" {
-        source  	= "../../modules"
+        source  	= "../modules"
         environment     = "stage"
         managed_by      = "terraform"
 }

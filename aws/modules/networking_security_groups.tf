@@ -1,3 +1,23 @@
+resource "aws_security_group" "sg_ssh" {
+
+  vpc_id = aws_vpc.dataplane_network.id
+
+  # Inbound ssh from anywhere
+  ingress {
+    from_port   = 0
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name		= "sg_ssh"
+    environment 	= var.environment,
+    managed_by  	= var.managed_by
+    Description     = "Allow ssh"
+  }
+}
+
 resource "aws_security_group" "sg_lb" {
 
   vpc_id = aws_vpc.dataplane_network.id

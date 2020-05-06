@@ -6,10 +6,13 @@ Terraform Cloud - AWS, GCLOUD, OCI, Azure
 Tests ran
 
 babu@meghmalhar:~/meghmalhar/gitroot/terraform/aws/modules\> curl -s lbr-1802745961.us-east-1.elb.amazonaws.com/home.html
+
 System information
-10.0.60.246ec2-54-80-124-186.compute-1.amazonaws.combabu@meghmalhar:~/meghmalhar/gitroot/terraform/aws/modules\>
+10.0.60.246ec2-54-80-124-186.compute-1.amazonaws.com
+
 
 babu@meghmalhar:~/meghmalhar/gitroot/terraform/aws/modules\> curl -sL -w "%{http_code}\n" lbr-1802745961.us-east-1.elb.amazonaws.com/index.html -o /dev/null
+
 200
 
 

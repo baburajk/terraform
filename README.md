@@ -10,7 +10,7 @@ Create 3 VPC's to test out VPC Peering, Network ACL's, Security Groups , EC2 , L
 
 1. release-2.0 ( Standup stage environment with LBR, EC2 and other resources without VPC Peering - Only dataplane )
 
-git clone -b '1.0' --single-branch git@github.com:baburajk/terraform.git
+git clone -b '2.0' --single-branch git@github.com:baburajk/terraform.git
 terraform plan
 terraform apply
 

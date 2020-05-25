@@ -1,6 +1,6 @@
 # terraform-cloud
 
-!![Learning AWS/Terraform](./diagrams/terraform-aws.svg
+!https://github.com/baburajk/terraform/blob/develop/diagrams/terraform-aws.svg
 
 Terraform Cloud - AWS, GCLOUD, OCI, Azure
 

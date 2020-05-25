@@ -3,10 +3,10 @@
 
 ![Building simple cloud projects using terraform](https://github.com/baburajk/terraform/blob/develop/diagrams/terraform_aws.png)
 
-##Goal 
+## Goal 
 Create 3 VPC's to test out VPC Peering, Network ACL's, Security Groups , EC2 , Load Balancers, Route Tables, Subnets etc. using Terraform (IaaS as a code)
 
-###Releases
+### Releases
 
 1. release-2.0 ( Standup stage environment with LBR, EC2 and other resources without VPC Peering - Only dataplane )
 
@@ -15,7 +15,7 @@ terraform plan
 terraform apply
 
 
-###Validations
+### Validations
 
 ```
 babu@meghmalhar:~/> curl -s lbr-1802745961.us-east-1.elb.amazonaws.com/home.html

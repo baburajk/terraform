@@ -1,26 +1,28 @@
 # terraform-cloud
 
-Terraform Cloud - AWS, GCLOUD, OCI, Azure
 
-## /aws - Directory to hold all AWS specific terraform scripts.
+![Building simple cloud projects using terraform](https://github.com/baburajk/terraform/blob/develop/diagrams/terraform_aws.png)
 
-Version 1.0 
-Create a sandbox environment with a simple VPC, Subnets, Security Groups, NACL, ELB, EC2 instances across multiple regions/AZ's using
-terraform modules.
+## Goal 
+Create 3 VPC's to test out VPC Peering, Network ACL's, Security Groups , EC2 , Load Balancers, Route Tables, Subnets etc. using Terraform (IaaS as a code)  
 
-Step 1: git clone -b '1.0' --single-branch git@github.com:baburajk/terraform.git
+### Releases
 
-Step 2: terraform apply
+2.0 :- Stage environment with all resources within dataplane VPC - Network ACL, Route Tables, EC2, LBR etc.
 
-Step 3: Validate
+git clone -b '2.0' --single-branch git@github.com:baburajk/terraform.git  
+terraform plan  
+terraform apply  
+
+### Validations
 
 ```
-babu@meghmalhar:~/meghmalhar/gitroot/terraform/aws/modules\> curl -s lbr-1802745961.us-east-1.elb.amazonaws.com/home.html
+babu@meghmalhar:~/> curl -s lbr-1802745961.us-east-1.elb.amazonaws.com/home.html
 
 System information
 10.0.60.246ec2-54-80-124-186.compute-1.amazonaws.com
 
-babu@meghmalhar:~/meghmalhar/gitroot/terraform/aws/modules\> curl -sL -w "%{http_code}\n" lbr-1802745961.us-east-1.elb.amazonaws.com/index.html -o /dev/null
+babu@meghmalhar:~/\> curl -sL -w "%{http_code}\n" lbr-1802745961.us-east-1.elb.amazonaws.com/index.html -o /dev/null
 
 200
 

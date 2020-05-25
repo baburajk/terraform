@@ -62,7 +62,7 @@ resource "aws_security_group" "sg_web" {
     from_port   = var.lb_port
     to_port     = var.lb_port
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    security_groups = [aws_security_group.sg_lb.id]
   }
 
   tags = {
